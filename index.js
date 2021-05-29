@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
+
 
 app.use(express.json())
-
+app.use(morgan('tiny'))
 let notes = [ 
     {
       id: 1,
@@ -41,6 +43,8 @@ let notes = [
     
       response.status(204).end()
     }) 
+
+    
 
   app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
